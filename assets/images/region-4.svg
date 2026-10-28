@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="西段绿道">
+  <defs>
+    <linearGradient id="r4sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fce7f3"/><stop offset="1" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <linearGradient id="r4field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#r4sky)"/>
+  <circle cx="110" cy="76" r="34" fill="#fca5a5" opacity="0.8"/>
+  <path d="M0 245 C130 210 240 235 340 248 C460 264 550 232 640 248 L640 400 L0 400 Z" fill="url(#r4field)" opacity="0.8"/>
+  <path d="M0 300 C150 270 270 300 390 292 C510 284 580 300 640 294 L640 400 L0 400 Z" fill="#34d399"/>
+  <path d="M-20 370 C140 338 260 364 390 354 C510 344 580 356 660 348" stroke="#fefce8" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <g fill="#047857">
+    <circle cx="520" cy="300" r="26"/><rect x="516" y="300" width="8" height="44"/>
+    <circle cx="590" cy="318" r="17"/><rect x="587" y="318" width="6" height="28"/>
+    <circle cx="90" cy="318" r="18"/><rect x="87" y="318" width="6" height="30"/>
+  </g>
+  <text x="32" y="60" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#9f1239">西段 4 号</text>
+  <text x="34" y="92" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18" fill="#9f1239">田园花海 · 四季景观</text>
+</svg>

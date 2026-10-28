@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="天府绿道俯视示意图">
+  <defs>
+    <linearGradient id="grass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d1fae5"/>
+      <stop offset="0.5" stop-color="#a7f3d0"/>
+      <stop offset="1" stop-color="#6ee7b7"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grass)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <path d="M-40 470 C120 380 240 420 340 360 C470 280 560 300 680 220 C740 180 790 160 840 140"
+        stroke="#38bdf8" stroke-width="52" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M-40 470 C120 380 240 420 340 360 C470 280 560 300 680 220 C740 180 790 160 840 140"
+        stroke="#e0f2fe" stroke-width="5" fill="none" stroke-dasharray="16 14" stroke-linecap="round"/>
+  <path d="M30 560 C150 520 230 470 330 470 C450 470 520 400 610 370 C700 340 760 330 830 340"
+        stroke="#fefce8" stroke-width="40" fill="none" stroke-linecap="round" opacity="0.95"/>
+  <path d="M30 560 C150 520 230 470 330 470 C450 470 520 400 610 370 C700 340 760 330 830 340"
+        stroke="#fbbf24" stroke-width="4" fill="none" stroke-dasharray="12 12" stroke-linecap="round"/>
+  <path d="M120 80 C210 140 250 220 240 330" stroke="#fefce8" stroke-width="26" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <g fill="#047857" opacity="0.9">
+    <circle cx="120" cy="140" r="22"/><circle cx="180" cy="110" r="16"/><circle cx="700" cy="470" r="26"/>
+    <circle cx="640" cy="510" r="18"/><circle cx="250" cy="520" r="20"/><circle cx="560" cy="120" r="18"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="500" y="440" width="90" height="60" rx="10"/>
+    <rect x="60" y="330" width="70" height="50" rx="8"/>
+    <rect x="610" y="70" width="80" height="54" rx="8"/>
+  </g>
+  <g fill="#94a3b8" opacity="0.6">
+    <rect x="515" y="455" width="60" height="8" rx="4"/>
+    <rect x="515" y="472" width="44" height="8" rx="4"/>
+    <rect x="75" y="345" width="40" height="7" rx="3.5"/>
+    <rect x="625" y="86" width="52" height="7" rx="3.5"/>
+  </g>
+</svg>

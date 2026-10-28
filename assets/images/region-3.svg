@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="北段绿道">
+  <defs>
+    <linearGradient id="r3sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fef3c7"/><stop offset="1" stop-color="#ecfdf5"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#r3sky)"/>
+  <circle cx="540" cy="76" r="36" fill="#fde68a"/>
+  <path d="M0 260 C120 220 230 240 340 252 C460 266 540 230 640 246 L640 400 L0 400 Z" fill="#10b981"/>
+  <path d="M0 320 C140 290 260 320 380 312 C500 304 570 318 640 310 L640 400 L0 400 Z" fill="#059669"/>
+  <path d="M-20 372 C140 340 260 366 390 356 C510 346 580 358 660 350" stroke="#fefce8" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <g fill="#ffffff" opacity="0.85">
+    <rect x="430" y="250" width="80" height="54" rx="8"/>
+    <rect x="444" y="262" width="52" height="7" rx="3.5" fill="#94a3b8"/>
+  </g>
+  <g fill="#064e3b">
+    <circle cx="120" cy="292" r="24"/><rect x="116" y="292" width="8" height="40"/>
+    <circle cx="210" cy="308" r="17"/><rect x="207" y="308" width="6" height="28"/>
+  </g>
+  <text x="32" y="60" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#065f46">北段 3 号</text>
+  <text x="34" y="92" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18" fill="#047857">社区连接 · 人流密集</text>
+</svg>

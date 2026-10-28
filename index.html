@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10b981">
+  <meta name="description" content="天府绿道居民认养计划：认养绿道、上报问题、共建公园城市。">
+  <title>天府绿道 · 居民认养</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <!-- 图标雪碧图（内联，离线可用） -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zM9 2 7.17 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08C16.75 16.64 14.56 18 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></symbol>
+  </svg>
+
+  <div class="app" id="app">
+    <main class="app-main" id="app-main">
+
+      <!-- ================= 首页 ================= -->
+      <section class="page" id="page-home" data-page="home">
+        <header class="page-header">
+          <img src="assets/images/logo.svg" alt="天府绿道标志" width="34" height="34" style="width:34px;height:34px">
+          <div style="flex:1;min-width:0">
+            <h1 class="page-title">天府绿道</h1>
+            <p style="margin:1px 0 0;font-size:11px;color:#6b7280">居民认养 · 共建共享</p>
+          </div>
+          <button class="icon-btn" type="button" data-action="open-notifications" aria-label="消息通知">
+            <svg class="icon"><use href="#i-bell"/></svg>
+            <span class="notif-dot hidden" id="notif-dot"></span>
+          </button>
+        </header>
+        <div class="page-scroll">
+          <div class="hero-card">
+            <img src="assets/images/hero-greenway.svg" alt="天府绿道绿意实景" id="hero-img">
+            <div class="hero-overlay">
+              <h2 id="hero-title">认养一段绿道</h2>
+              <p id="hero-subtitle">共建公园城市 · 共享绿色生活</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4" style="gap:10px;margin-top:16px">
+            <button class="quick-entry" type="button" data-nav="adopt">
+              <svg class="icon"><use href="#i-map"/></svg>
+              <span>我要认养</span>
+            </button>
+            <button class="quick-entry" type="button" data-nav="report">
+              <svg class="icon"><use href="#i-camera"/></svg>
+              <span>问题上报</span>
+            </button>
+            <button class="quick-entry" type="button" data-nav="my-adoptions">
+              <svg class="icon"><use href="#i-leaf"/></svg>
+              <span>我的认养</span>
+            </button>
+            <button class="quick-entry" type="button" data-nav="my-suggestions">
+              <svg class="icon"><use href="#i-bulb"/></svg>
+              <span>建议反馈</span>
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between" style="margin-top:20px;margin-bottom:10px">
+            <h2 class="section-title">绿道地图</h2>
+            <span class="text-muted" style="font-size:11px">点击标记查看详情</span>
+          </div>
+          <div class="map-container">
+            <img src="assets/images/hero-map.svg" alt="天府绿道区域示意图">
+            <div id="home-markers"></div>
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <div class="flex items-center justify-between">
+              <h2 class="section-title">我的绿色足迹</h2>
+              <span class="chip"><svg class="icon icon-sm"><use href="#i-star"/></svg><span id="home-points">0</span> 积分</span>
+            </div>
+            <div class="grid grid-cols-3" style="margin-top:12px;text-align:center">
+              <div>
+                <p class="stat-num" id="home-adoptions">0</p>
+                <p class="stat-label">认养中</p>
+              </div>
+              <div>
+                <p class="stat-num" id="home-reports">0</p>
+                <p class="stat-label">已上报</p>
+              </div>
+              <div>
+                <p class="stat-num" id="home-resolved">0</p>
+                <p class="stat-label">已解决</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between" style="margin-top:20px;margin-bottom:10px">
+            <h2 class="section-title">环保动态</h2>
+            <button class="text-muted" type="button" data-nav="my-suggestions" style="border:none;background:none;font-size:11px;cursor:pointer">
+              我要建议
+            </button>
+          </div>
+          <div class="card" id="home-bulletins">
+            <div class="skeleton" style="height:56px"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 问题上报 ================= -->
+      <section class="page" id="page-report" data-page="report">
+        <header class="page-header">
+          <div style="flex:1">
+            <h1 class="page-title">问题上报</h1>
+            <p style="margin:1px 0 0;font-size:11px;color:#6b7280">随手拍 · 共建美好绿道</p>
+          </div>
+          <span class="chip"><svg class="icon icon-sm"><use href="#i-camera"/></svg>上报得积分</span>
+        </header>
+        <div class="page-scroll">
+          <div class="card">
+            <h2 class="section-title">现场照片</h2>
+            <p class="text-muted" style="margin:4px 0 12px;font-size:12px">最多 3 张，清晰的照片有助于快速处理</p>
+            <div class="preview-grid" id="report-previews"></div>
+            <div class="grid grid-cols-2" style="gap:10px;margin-top:12px">
+              <button class="btn btn-ghost" type="button" data-action="pick-camera">
+                <svg class="icon icon-sm"><use href="#i-camera"/></svg>拍照
+              </button>
+              <button class="btn btn-ghost" type="button" data-action="pick-gallery">
+                <svg class="icon icon-sm"><use href="#i-image"/></svg>从相册选择
+              </button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h2 class="section-title">上报类型</h2>
+            <div class="tab-bar" style="margin-top:10px" data-role="report-kind">
+              <button class="tab-btn active" type="button" data-kind="issue">绿道问题</button>
+              <button class="tab-btn" type="button" data-kind="bug">小程序问题</button>
+            </div>
+            <div class="grid grid-cols-2" style="gap:8px;margin-top:12px" id="report-types"></div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h2 class="section-title">位置信息</h2>
+            <div style="margin-top:10px">
+              <label class="text-muted" for="report-region" style="font-size:12px">所属绿道段落</label>
+              <select class="field" id="report-region" style="margin-top:6px">
+                <option value="">请选择段落（可选）</option>
+              </select>
+            </div>
+            <div style="margin-top:12px">
+              <label class="text-muted" for="report-location" style="font-size:12px">具体位置</label>
+              <input class="field" id="report-location" type="text" maxlength="120" placeholder="例如：南段1号 第3个休息亭旁" style="margin-top:6px">
+              <p class="text-muted" id="location-hint" style="font-size:11px;margin:6px 0 0">
+                当前环境无法获取定位，请手动描述位置。
+              </p>
+              <button class="btn btn-ghost btn-sm hidden" type="button" id="gps-btn" data-action="pick-gps" style="margin-top:8px">
+                <svg class="icon icon-sm"><use href="#i-location"/></svg>获取当前位置
+              </button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h2 class="section-title">详细描述</h2>
+            <textarea class="field" id="report-desc" rows="4" maxlength="500" placeholder="请描述发现的问题，例如：护栏松动、照明损坏、垃圾堆积……" style="margin-top:10px"></textarea>
+            <div class="flex items-center justify-between" style="margin-top:6px">
+              <span class="text-muted" style="font-size:11px">请勿填写个人敏感信息</span>
+              <span class="text-muted" style="font-size:11px"><span id="desc-count">0</span>/500</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" id="report-submit" data-action="submit-report" style="width:100%;margin-top:16px">
+            <svg class="icon icon-sm"><use href="#i-send"/></svg>提交上报
+          </button>
+          <p class="text-muted" style="text-align:center;font-size:11px;margin:10px 0 0">提交成功后可在「我的记录」查看处理进度</p>
+        </div>
+      </section>
+
+      <!-- ================= 认养列表 ================= -->
+      <section class="page" id="page-adopt" data-page="adopt">
+        <header class="page-header">
+          <div style="flex:1">
+            <h1 class="page-title">绿道认养</h1>
+            <p style="margin:1px 0 0;font-size:11px;color:#6b7280">选择一段绿道，成为它的守护者</p>
+          </div>
+          <button class="icon-btn" type="button" data-action="refresh-adopt" aria-label="刷新">
+            <svg class="icon"><use href="#i-refresh"/></svg>
+          </button>
+        </header>
+        <div class="page-scroll">
+          <div style="position:relative">
+            <svg class="icon" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#9ca3af"><use href="#i-search"/></svg>
+            <input class="field" id="adopt-search" type="search" placeholder="搜索绿道名称或段落" style="padding-left:38px">
+          </div>
+          <div class="tab-bar" style="margin-top:12px" data-role="adopt-section">
+            <button class="tab-btn active" type="button" data-section="">全部</button>
+            <button class="tab-btn" type="button" data-section="南段">南段</button>
+            <button class="tab-btn" type="button" data-section="东段">东段</button>
+            <button class="tab-btn" type="button" data-section="北段">北段</button>
+            <button class="tab-btn" type="button" data-section="西段">西段</button>
+          </div>
+          <div id="adopt-list" style="margin-top:14px;display:flex;flex-direction:column;gap:12px">
+            <div class="skeleton" style="height:120px"></div>
+            <div class="skeleton" style="height:120px"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 认养详情 ================= -->
+      <section class="page" id="page-adopt-detail" data-page="adopt-detail">
+        <header class="page-header">
+          <button class="icon-btn" type="button" data-action="back" aria-label="返回">
+            <svg class="icon"><use href="#i-back"/></svg>
+          </button>
+          <h1 class="page-title">认养详情</h1>
+        </header>
+        <div class="page-scroll" id="adopt-detail-body">
+          <div class="skeleton" style="height:200px"></div>
+        </div>
+      </section>
+
+      <!-- ================= 我的记录 ================= -->
+      <section class="page" id="page-my-reports" data-page="my-reports">
+        <header class="page-header">
+          <div style="flex:1">
+            <h1 class="page-title">我的记录</h1>
+            <p style="margin:1px 0 0;font-size:11px;color:#6b7280">上报与处理进度</p>
+          </div>
+          <button class="icon-btn" type="button" data-action="refresh-reports" aria-label="刷新">
+            <svg class="icon"><use href="#i-refresh"/></svg>
+          </button>
+        </header>
+        <div class="page-scroll">
+          <div class="card">
+            <div class="grid grid-cols-4" style="text-align:center">
+              <div>
+                <p class="stat-num" id="mr-total">0</p>
+                <p class="stat-label">全部</p>
+              </div>
+              <div>
+                <p class="stat-num" id="mr-pending" style="color:#d97706">0</p>
+                <p class="stat-label">待处理</p>
+              </div>
+              <div>
+                <p class="stat-num" id="mr-processing" style="color:#2563eb">0</p>
+                <p class="stat-label">处理中</p>
+              </div>
+              <div>
+                <p class="stat-num" id="mr-resolved" style="color:#059669">0</p>
+                <p class="stat-label">已解决</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-bar" style="margin-top:12px" data-role="my-reports-kind">
+            <button class="tab-btn active" type="button" data-kind="">全部</button>
+            <button class="tab-btn" type="button" data-kind="issue">绿道问题</button>
+            <button class="tab-btn" type="button" data-kind="bug">小程序问题</button>
+          </div>
+          <div id="my-reports-list" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+            <div class="skeleton" style="height:96px"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 个人中心 ================= -->
+      <section class="page" id="page-profile" data-page="profile">
+        <header class="page-header">
+          <h1 class="page-title" style="flex:1">个人中心</h1>
+          <button class="icon-btn" type="button" data-action="open-about" aria-label="关于">
+            <svg class="icon"><use href="#i-settings"/></svg>
+          </button>
+        </header>
+        <div class="page-scroll">
+          <div class="user-card">
+            <div class="flex items-center" style="gap:14px">
+              <div class="user-avatar" id="profile-avatar">绿</div>
+              <div style="flex:1;min-width:0">
+                <p style="margin:0;font-size:18px;font-weight:800" id="profile-nickname">绿道守护者</p>
+                <p style="margin:4px 0 0;font-size:11px;opacity:.85" id="profile-meta">正在加载…</p>
+              </div>
+              <button class="icon-btn" type="button" data-action="edit-profile" aria-label="编辑昵称" style="background:rgba(255,255,255,.18);color:#fff">
+                <svg class="icon icon-sm"><use href="#i-edit"/></svg>
+              </button>
+            </div>
+            <div class="grid grid-cols-3" style="margin-top:16px;text-align:center">
+              <div>
+                <p style="margin:0;font-size:22px;font-weight:800" id="profile-points">0</p>
+                <p style="margin:2px 0 0;font-size:11px;opacity:.85">积分</p>
+              </div>
+              <div>
+                <p style="margin:0;font-size:22px;font-weight:800" id="profile-adoptions">0</p>
+                <p style="margin:2px 0 0;font-size:11px;opacity:.85">认养中</p>
+              </div>
+              <div>
+                <p style="margin:0;font-size:22px;font-weight:800" id="profile-reports">0</p>
+                <p style="margin:2px 0 0;font-size:11px;opacity:.85">上报</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:16px;padding:6px 16px">
+            <button class="list-row" type="button" data-nav="my-adoptions">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-leaf"/></svg></span>
+              <span>我的认养</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+            <button class="list-row" type="button" data-nav="my-reports">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-file"/></svg></span>
+              <span>我的上报</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+            <button class="list-row" type="button" data-nav="my-suggestions">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-bulb"/></svg></span>
+              <span>我的建议</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+            <button class="list-row" type="button" data-action="open-points">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-star"/></svg></span>
+              <span>积分明细</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+            <button class="list-row" type="button" data-action="open-notifications">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-bell"/></svg></span>
+              <span>消息通知</span>
+              <span class="badge badge-mine hidden" id="profile-unread">0</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+            <button class="list-row" type="button" data-action="open-about">
+              <span class="list-icon"><svg class="icon icon-sm"><use href="#i-info"/></svg></span>
+              <span>关于项目</span>
+              <span class="list-arrow"><svg class="icon icon-sm"><use href="#i-chevron"/></svg></span>
+            </button>
+          </div>
+
+          <p class="text-muted" style="text-align:center;font-size:11px;margin:18px 0 0">
+            天府绿道 · 居民认养计划 v1.0
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= 我的认养 ================= -->
+      <section class="page" id="page-my-adoptions" data-page="my-adoptions">
+        <header class="page-header">
+          <button class="icon-btn" type="button" data-action="back" aria-label="返回">
+            <svg class="icon"><use href="#i-back"/></svg>
+          </button>
+          <h1 class="page-title">我的认养</h1>
+        </header>
+        <div class="page-scroll">
+          <div class="card" id="my-adoptions-summary">
+            <div class="grid grid-cols-2" style="text-align:center">
+              <div>
+                <p class="stat-num" id="ma-total">0</p>
+                <p class="stat-label">有效认养</p>
+              </div>
+              <div>
+                <p class="stat-num" id="ma-pending">0</p>
+                <p class="stat-label">本月待上报</p>
+              </div>
+            </div>
+          </div>
+          <div id="my-adoptions-list" style="margin-top:14px;display:flex;flex-direction:column;gap:12px">
+            <div class="skeleton" style="height:140px"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 我的建议 ================= -->
+      <section class="page" id="page-my-suggestions" data-page="my-suggestions">
+        <header class="page-header">
+          <button class="icon-btn" type="button" data-action="back" aria-label="返回">
+            <svg class="icon"><use href="#i-back"/></svg>
+          </button>
+          <h1 class="page-title">建议反馈</h1>
+        </header>
+        <div class="page-scroll">
+          <div class="card">
+            <h2 class="section-title">写下你的建议</h2>
+            <textarea class="field" id="suggestion-content" rows="4" maxlength="500" placeholder="对绿道管理、活动或小程序功能有什么建议？" style="margin-top:10px"></textarea>
+            <input class="field" id="suggestion-contact" type="text" maxlength="60" placeholder="联系方式（选填）" style="margin-top:10px">
+            <button class="btn btn-primary" type="button" data-action="submit-suggestion" id="suggestion-submit" style="width:100%;margin-top:12px">
+              <svg class="icon icon-sm"><use href="#i-send"/></svg>提交建议
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between" style="margin-top:20px;margin-bottom:10px">
+            <h2 class="section-title">我的建议</h2>
+            <button class="text-muted" type="button" data-action="refresh-suggestions" style="border:none;background:none;font-size:11px;cursor:pointer">刷新</button>
+          </div>
+          <div id="my-suggestions-list" style="display:flex;flex-direction:column;gap:10px">
+            <div class="skeleton" style="height:90px"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 全局底部导航 -->
+    <nav class="bottom-nav" id="bottom-nav" aria-label="主导航">
+      <button class="nav-item active" type="button" data-nav="home">
+        <svg class="icon"><use href="#i-home"/></svg>
+        <span>首页</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="report">
+        <svg class="icon"><use href="#i-camera"/></svg>
+        <span>上报</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="adopt">
+        <svg class="icon"><use href="#i-map"/></svg>
+        <span>认养</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="my-reports">
+        <svg class="icon"><use href="#i-file"/></svg>
+        <span>记录</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="profile">
+        <svg class="icon"><use href="#i-user"/></svg>
+        <span>我的</span>
+      </button>
+    </nav>
+
+    <div class="toast-host" id="toast-host" aria-live="polite"></div>
+    <div id="modal-host"></div>
+  </div>
+
+  <!-- 隐藏的文件选择器（拍照 / 相册） -->
+  <input type="file" id="input-camera" accept="image/*" capture="environment" tabindex="-1" aria-hidden="true"
+         style="position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0">
+  <input type="file" id="input-gallery" accept="image/*" multiple tabindex="-1" aria-hidden="true"
+         style="position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0">
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // 兜底提示：模块脚本加载失败时给出可读信息，而不是白屏
+    window.setTimeout(function () {
+      if (!window.__tfgBooted) {
+        var main = document.getElementById('app-main');
+        if (main) {
+          main.innerHTML =
+            '<div class="boot-error">页面加载超时，请刷新页面重试。</div>';
+        }
+      }
+    }, 10000);
+  </script>
+</body>
+</html>

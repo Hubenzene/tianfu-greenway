@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="天府绿道标志">
+  <defs>
+    <linearGradient id="logoG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#logoG)"/>
+  <path d="M44 18C28 21 22 31 18 44c8-4 14-7 19-13 4-5 7-8 7-13Z" fill="#ecfdf5"/>
+  <path d="M20 44C27 36 34 31 42 27" stroke="#047857" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

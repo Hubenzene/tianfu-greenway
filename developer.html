@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10b981">
+  <title>开发者后台 · 天府绿道</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/developer.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="brand">
+      <img src="assets/images/logo.svg" alt="天府绿道标志" width="40" height="40">
+      <div>
+        <h1>天府绿道 · 开发者后台</h1>
+        <p>认养 · 上报 · 建议 数据管理</p>
+      </div>
+    </div>
+    <nav class="admin-tabs" id="admin-tabs" aria-label="后台模块">
+      <button type="button" data-tab="reports" class="active">上报管理</button>
+      <button type="button" data-tab="suggestions">建议反馈</button>
+      <button type="button" data-tab="overview">认养概览</button>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="admin-btn ghost" id="refresh-btn">刷新</button>
+      <button type="button" class="admin-btn ghost" id="logout-btn">退出</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- 上报管理 -->
+    <section class="admin-panel" data-panel="reports">
+      <div class="panel-head">
+        <div>
+          <h2>上报管理</h2>
+          <p class="muted">处理居民提交的绿道问题与小程序问题</p>
+        </div>
+        <span class="pill" id="reports-count">共 0 条</span>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <p class="stat-value" id="rs-total">0</p>
+          <p class="stat-label">全部上报</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value amber" id="rs-pending">0</p>
+          <p class="stat-label">待处理</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value blue" id="rs-processing">0</p>
+          <p class="stat-label">处理中</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value green" id="rs-resolved">0</p>
+          <p class="stat-label">已解决</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value" id="rs-today">0</p>
+          <p class="stat-label">今日新增</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <select class="admin-input" id="filter-status" aria-label="按状态筛选">
+          <option value="">全部状态</option>
+          <option value="pending">待处理</option>
+          <option value="processing">处理中</option>
+          <option value="resolved">已解决</option>
+          <option value="rejected">已驳回</option>
+        </select>
+        <select class="admin-input" id="filter-kind" aria-label="按分类筛选">
+          <option value="">全部分类</option>
+          <option value="issue">绿道问题</option>
+          <option value="bug">小程序问题</option>
+        </select>
+        <input class="admin-input grow" id="filter-q" type="search" placeholder="搜索描述 / 位置 / 用户昵称">
+        <button type="button" class="admin-btn" id="apply-filter">筛选</button>
+        <button type="button" class="admin-btn ghost" id="reset-filter">重置</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>提交时间</th>
+              <th>用户</th>
+              <th>分类 / 类型</th>
+              <th>描述</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="reports-tbody">
+            <tr><td colspan="7" class="muted center">加载中…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 建议反馈 -->
+    <section class="admin-panel hidden" data-panel="suggestions">
+      <div class="panel-head">
+        <div>
+          <h2>建议反馈</h2>
+          <p class="muted">查看居民建议并回复，回复内容会推送到用户端消息中心</p>
+        </div>
+        <span class="pill" id="suggestions-count">共 0 条</span>
+      </div>
+
+      <div class="toolbar">
+        <select class="admin-input" id="suggestion-status" aria-label="按状态筛选">
+          <option value="">全部状态</option>
+          <option value="pending">待处理</option>
+          <option value="reviewing">审核中</option>
+          <option value="replied">已回复</option>
+          <option value="closed">已关闭</option>
+        </select>
+        <input class="admin-input grow" id="suggestion-q" type="search" placeholder="搜索建议内容 / 联系方式">
+        <button type="button" class="admin-btn" id="apply-suggestion-filter">筛选</button>
+        <button type="button" class="admin-btn ghost" id="reset-suggestion-filter">重置</button>
+      </div>
+
+      <div id="suggestions-list" class="suggestion-list">
+        <div class="admin-card muted center">加载中…</div>
+      </div>
+    </section>
+
+    <!-- 认养概览 -->
+    <section class="admin-panel hidden" data-panel="overview">
+      <div class="panel-head">
+        <div>
+          <h2>认养概览</h2>
+          <p class="muted">整体运营数据与各段落认养情况</p>
+        </div>
+        <span class="pill" id="overview-updated">—</span>
+      </div>
+
+      <div class="stat-grid four">
+        <div class="stat-card">
+          <p class="stat-value" id="ov-total">0</p>
+          <p class="stat-label">上报总数</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value amber" id="ov-pending">0</p>
+          <p class="stat-label">待处理上报</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value green" id="ov-adoptions">0</p>
+          <p class="stat-label">活跃认养</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-value" id="ov-suggestions">0</p>
+          <p class="stat-label">建议总数</p>
+        </div>
+      </div>
+
+      <div class="overview-grid">
+        <div class="admin-card chart-card">
+          <div class="card-head">
+            <h3>近 7 天上报趋势</h3>
+            <span class="muted small">按录入日期统计</span>
+          </div>
+          <div class="chart-wrap"><canvas id="chart-days"></canvas></div>
+        </div>
+        <div class="admin-card">
+          <div class="card-head">
+            <h3>问题类型分布</h3>
+          </div>
+          <div id="type-summary" class="type-summary">
+            <p class="muted">加载中…</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="card-head">
+          <h3>段落认养情况</h3>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>段落</th>
+                <th>分区</th>
+                <th>长度</th>
+                <th>认养人数</th>
+                <th>认养进度</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="regions-tbody">
+              <tr><td colspan="6" class="muted center">加载中…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 登录层 -->
+  <div class="login-layer" id="login-layer">
+    <form class="login-card" id="login-form">
+      <img src="assets/images/logo.svg" alt="天府绿道标志" width="52" height="52">
+      <h2>开发者后台登录</h2>
+      <p class="muted">演示版请输入密钥 demo123（无需后端服务）</p>
+      <input class="admin-input" id="login-key" type="password" placeholder="管理密钥" autocomplete="current-password" required>
+      <p class="login-error hidden" id="login-error"></p>
+      <button class="admin-btn primary" id="login-submit" type="submit">进入后台</button>
+      <p class="login-foot muted">仅限授权人员使用，密钥仅保存在本机浏览器。</p>
+    </form>
+  </div>
+
+  <div class="toast-host" id="toast-host" aria-live="polite"></div>
+  <div id="admin-modal-host"></div>
+
+  <script src="js/vendor/chart.umd.js"></script>
+  <script type="module" src="js/dev/admin.js"></script>
+</body>
+</html>
