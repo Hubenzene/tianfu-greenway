@@ -811,6 +811,7 @@ textarea.admin-input {
 
   .admin-tabs {
     order: 3;
+    flex: 1 1 100%;
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
