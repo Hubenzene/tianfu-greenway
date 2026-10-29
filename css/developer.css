@@ -836,6 +836,50 @@ textarea.admin-input {
 }
 
 @media (max-width: 640px) {
+  .admin-header {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .brand {
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand h1 {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .brand p {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .admin-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .admin-tabs {
+    gap: 4px;
+  }
+
+  .admin-tabs button {
+    padding: 7px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
   .admin-main {
     padding: 18px 14px 48px;
   }
